@@ -1,0 +1,25 @@
+Passo a passo instalação e configurações iniciais:
+
+1: instale o python : sudo apt install python3
+
+1.1: verifique a versão precisa ser maior que 3.8 :python -version
+
+2: instale o starlet: pip install starlette
+
+3: instale o uvicorn: pip install uvicorn
+
+4: instale o  python3.10-venv : sudo  apt install python3.10-venv
+
+
+5: instalando o fastapi : pip install "fastapi[standard]"
+
+** Usar um ambiente virtual isolado (recomendado)  
+* Muitas vezes esses conflitos aparecem porque você tem vários pacotes instalados globalmente.
+* Crie um ambiente virtual e reinstale só o que precisa:
+	python -m venv venv
+	source venv/bin/activate   # Linux/Mac
+	venv\Scripts\activate      # Windows
+	pip install kubernetes
+
+
+6: executando a aplicação no terminal intellij: fastapi dev main.py
