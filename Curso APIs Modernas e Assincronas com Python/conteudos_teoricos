@@ -1,0 +1,11 @@
+o q é uvicorn é um servidor de alta performance para executar codigo assíncrono.
+
+
+estudar o conceito de decorator: 
+
+
+executando o arquivo  prncipal diretamente
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, log_level=int("info"), reload=True)
