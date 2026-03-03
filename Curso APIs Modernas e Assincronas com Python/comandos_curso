@@ -1,0 +1,90 @@
+/**instalando o virtualenv */
+
+comando para ver qual linux estou usando: lsb_release -a
+
+atualizando o linux: sudo apt update
+
+comando para criar o ambiente virtual com wrapper: mkvirtualenv famp-secao02 -p python3.13 -- diretório e secao02 é o ambiente virtual do código
+instalando o virtualenv: sudo apt install python3-virtualenv virtualenvwrapper
+
+configurar no seu bashrc: nano ~/.bashrc
+
+e adicione no final:
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+salve e rode: source ~/.bashrc
+
+ou alternativa: não usar o virtaulenvwrapper :
+
+pyenv local 3.13.0
+python -m venv venv
+source venv/bin/activate
+
+criando o pyenv com com o comando : 
+ 1 - pyenv local 3.13.0 
+ 2 - python -m venv famp-secao02
+ 3 - source famp-secao02/bin/activate
+
+Sempre que entrar na pasta do projeto, para reativar: source famp-secao02/bin/activate 
+
+Para sair do ambiente: deactivate
+
+instalação do fastAPI: pip install fastapi uvicorn
+
+para instalar uma versão especifica do fastAPI: pip install fastapi==0.72.2
+
+comando para criar o arquivo de requsiirimentos com todas as bibliotecas instaladas: pip freeze > requirements.txt
+
+executando a api python: uvicorn main:app "o maisn é o nome do arquivo e o app e o nome do app"
+
+link do swagger : http://127.0.0.1:8000/docs#/default/raiz__get
+
+outro tipo de documentação redoc: 127.0.0.1:8000/redoc
+
+comando para reexecutar a api carregando as alterações:  uvicorn main:app --reload
+
+executando o arquivo  prncipal diretamente:
+	if __name__ == "__main__":
+	    import uvicorn
+	    uvicorn.run(app, host="0.0.0.0", port=8000, log_level=int("info"), reload=True)
+	   
+após adicionar todas essas opções no seu código, para executar vai ser o comando : python main.py
+
+quando vai levar a aplicação para produção utiliza a ferramenta gunicorn
+  * comando para instalar a gunicorn: pip install gunicorn 
+  * comando para atualizar as novas libs instaladas: pip freeze > requirements.txt
+  * comando para subir a api: gunicorn maon:app -w 4  -k uvicorn.workers.UvicornWorker
+  
+  explicação do comando acima:o -w 4 é para indicar quantos servidores vai subir quando iniciar a aplicação, para balancemaneto de carga, o -k é pra indicar a classe que 
+  quer que executa, no caso uvicorn.workers.UvicornWorker
+
+/** criando a seção 03:*/
+
+ambiente virtual:
+ou alternativa: não usar o virtaulenvwrapper :
+
+pyenv local 3.13.0
+python -m venv venv
+source venv/bin/activate
+
+instalar as bibliotecas necessárias: pip install fastapi gunicorn e uvicorn
+
+instalar os requirements: pip freeze > requirements.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    
